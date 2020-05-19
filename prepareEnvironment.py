@@ -16,7 +16,7 @@ class ParseStage:
     EFFECTS = 5
 
 
-def prepare_environment(filename):
+def prepare_environment():
     # tworzymy nowa klase srodowiska
     environment = Environment()
 
@@ -41,8 +41,7 @@ def prepare_environment(filename):
 
     current_action = None
 
-    if filename is None:
-        filename = sys.argv[1]
+    filename = sys.argv[1]
 
     # Parsowanie pliku
     with open(filename) as file:

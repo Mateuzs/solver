@@ -1,7 +1,6 @@
 # funkcja parsujaca plik z opisem w jezyku STRIPS
 
-
-from Condition import Condition
+from classes.Condition import Condition
 
 # funkcje pomocnicze
 

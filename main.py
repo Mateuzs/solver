@@ -1,42 +1,49 @@
 import sys
 
 from prepareEnvironment import prepare_environment
-from solver import solve
+
+from solver import solve, print_plan
 
 
 def main():
+
+    print("\nParsing problem...")
     # w pierwszym kroku interpretujemy plik z podanym celem, stanem, akcjami
-    environment = prepare_environment(None)
+    environment = prepare_environment()
     print("\nState: ")
     print(environment.state)
 
     print("\nActions: ")
-    print(environment.actions)
-
-    goal = environment.goals.pop()
-    print("\nGoal: " + str(goal))
+    for action in environment.actions:
+        print(action)
 
     print("\nLiterals: ")
     print(environment.literals)
 
-    # # Cel jest osiagniety na starcie ?
-    # goal_achieved = environment.goal_achieved()
+    print("\nGoal: ")
+    for goal in environment.goals:
+        print(goal)
 
-    # if not goal_achieved:
-    #     print("Trying to solve...")
+    print("\n")
+    # Cel jest osiagniety na starcie ?
+    goal_achieved = environment.goal_achieved()
 
-    #     analysis = sys.argv[1]
+    if not goal_achieved:
+        print("Solving......")
 
-    #     # wywolujemy solver na zainicjalizowanym srodowisku
-    #     problem_solved = solve(environment, analysis)
+        analysis = sys.argv[2]
+        depth = sys.argv[3]
 
-    #     if problem_solved is None:
-    #         print("Problem not solved.")
-    #     else:
-    #         print("Problem solved!")
-    #         print_plan(problem_solved)
-    # else:
-    #     print("Problem solved! Goal achieved at start")
+        # wywolujemy solver na zainicjalizowanym srodowisku
+        problem_solved = solve(environment, analysis, depth)
+
+        if problem_solved is None:
+            print("Problem not solved.")
+        else:
+            print("\nProblem solved!\n")
+            print_plan(problem_solved)
+    else:
+        print("Problem solved! Goal achieved at start")
 
 
 if __name__ == "__main__":

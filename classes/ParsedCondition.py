@@ -1,4 +1,4 @@
-from Condition import Condition
+from classes.Condition import Condition
 
 # funkcje pomocnicze
 

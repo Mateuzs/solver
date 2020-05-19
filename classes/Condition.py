@@ -12,8 +12,8 @@ class Condition:
         self.truth = truth
 
     # sprawdzamy czy warunek osiagnieto
-    def achieved(self, world):
-        return world.is_true(self.predicate, self.literals) == self.truth
+    def achieved(self, environment):
+        return environment.is_true(self.predicate, self.literals) == self.truth
 
     # czytelna forma do wypisania w konsoli
     def __str__(self):

@@ -19,13 +19,13 @@ def cond_find(items, target):
     return None
 
 
-def cond_match(ground1, ground2):
+def cond_match(condition1, condition2):
     # sprawdzamy czy warunek ma te sama nazwe i literaly
-    if ground1.predicate != ground2.predicate:
+    if condition1.predicate != condition2.predicate:
         return False
-    if len(ground1.literals) != len(ground2.literals):
+    if len(condition1.literals) != len(condition2.literals):
         return False
-    for i, j in zip(ground1.literals, ground2.literals):
+    for i, j in zip(condition1.literals, condition2.literals):
         if i != j:
             return False
     return True
@@ -48,7 +48,7 @@ class Action:
 
     # czytelna forma do wypisywania na konsoli
     def __str__(self):
-        return "{0}({1})\nPre: {2}\nPost: {3}".format(self.action.name, concatenate_list(self.literals), concatenate_list(self.preconditions), concatenate_list(self.effects))
+        return "{0}({1})\nPreconditions: {2}\nEffects: {3}".format(self.action.name, concatenate_list(self.literals), concatenate_list(self.preconditions), concatenate_list(self.effects))
 
     # forma uproszczona
     def simple_str(self):

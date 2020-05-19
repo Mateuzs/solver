@@ -1,4 +1,4 @@
-from Action import Action
+from classes.Action import Action
 
 # funkcje  pomocnicze
 
@@ -48,4 +48,4 @@ class ParsedAction:
 
     # czytelna forma  do wypisywania na konsoli
     def __str__(self):
-        return "{0}({1})\nPre: {2}\nPost: {3}".format(self.name, concatenate_list(self.params), concatenate_list(self.preconditions), concatenate_list(self.effects))
+        return "{0}({1})\nPreconditions: {2}\nEffects: {3}".format(self.name, concatenate_list(self.params), concatenate_list(self.preconditions), concatenate_list(self.effects))
