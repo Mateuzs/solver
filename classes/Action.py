@@ -12,12 +12,6 @@ def cond_contains(items, target):
     return False
 
 
-def cond_find(items, target):
-    for item in items:
-        if cond_match(item, target):
-            return item
-    return None
-
 
 def cond_match(condition1, condition2):
     # sprawdzamy czy warunek ma te sama nazwe i literaly

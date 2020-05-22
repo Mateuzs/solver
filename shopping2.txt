@@ -1,0 +1,14 @@
+init: Byc(Dom), Sprzedaje(Sklep, Ser), Sprzedaje(Sklep, Szynka), Sprzedaje(Targ, Banany),  Sprzedaje(Sklep2, Orzechy), Sprzedaje(Sklep2, Delicje)
+goal: Byc(Dom), Miec(Banany), Miec(Delicje), Miec(Orzechy), Miec(Ser), Miec(Szynka)
+
+
+actions:
+            Przejsc(X, Y)
+            preconditions: Byc(X)
+            effects: !Byc(X), Byc(Y)
+
+            Kupic(Y, X)
+            preconditions: Byc(Y), Sprzedaje(Y, X) 
+            effects: Miec(X)
+
+           

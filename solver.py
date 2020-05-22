@@ -1,6 +1,6 @@
 from classes.Condition import Condition
 
-from utils import find, match, deep_match, is_dangerous, initial_state_count, action_satisfied, precondition_reachable, preconditions_reachable, update_state, get_possible_actions
+from utils import is_dangerous, initial_state_count, action_satisfied, precondition_reachable, preconditions_reachable, update_state, get_possible_actions
 
 # glowna funkcja rozwiazujaca
 
@@ -14,8 +14,9 @@ def solve(environment, analysis, max_depth):
 
     goals = list(environment.goals)
     b_analysis = False if analysis == "false" else True
+    d_max_depth = int(max_depth)
 
-    return solve_lvl(environment, state, goals, [], 0, max_depth, b_analysis)
+    return solve_lvl(environment, state, goals, [], 0, d_max_depth, b_analysis)
 
 
 def solve_lvl(environment, state, goals, current_plan, depth, max_depth, analysis):
@@ -45,9 +46,8 @@ def solve_lvl(environment, state, goals, current_plan, depth, max_depth, analysi
             raw_input("")
 
         if action_satisfied(state, goal):
-            # recurse
             if analysis:
-                raw_input(padding + "Goal is already satisfied!")
+                raw_input(padding + "Goal is already reached!")
                 print ""
             i += 1
             continue

@@ -63,7 +63,7 @@ def precondition_reachable(environment, precondition):
     if precondition.achieved(environment):
         return True
 
-    for _, action in environment.actions.iteritems():
+    for key, action in environment.actions.iteritems():
         for transform in action.transforms:
             for effect in transform.effects:
                 if deep_match(effect, precondition):
@@ -86,7 +86,7 @@ def update_state(state, effect):
 
 def get_possible_actions(environment, goal):
     results = []
-    for _, action in environment.actions.iteritems():
+    for key, action in environment.actions.iteritems():
         for transform in action.transforms:
             for effect in transform.effects:
                 if deep_match(effect, goal):

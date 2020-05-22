@@ -6,8 +6,9 @@ actions:
             Przejsc(X, Y)
             preconditions: Byc(X)
             effects: !Byc(X), Byc(Y)
-
-            Kupic(Y, X)
+ 
+ 
+            Kupic(Y, X) 
             preconditions: Byc(Y), Sprzedaje(Y, X) 
             effects: Miec(X)
 
